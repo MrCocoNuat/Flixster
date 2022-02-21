@@ -28,7 +28,14 @@ class MovieItemAdapter(private val context: Context, private val movies: List<Mo
             val imageUrl = if (orientation == Configuration.ORIENTATION_LANDSCAPE) movie.backdropUrl
              else movie.posterUrl
 
-            Glide.with(context).load(imageUrl).into(posterView)
+            Glide.with(context)
+                .load(imageUrl)
+                .placeholder(R.drawable.ic_baseline_cloud_download_24)
+                    // DO NOT alter the viewport size to match the placeholder, keep it the same
+                .dontTransform()
+                .error(R.drawable.ic_baseline_cloud_off_24)
+                .dontTransform()
+                .into(posterView)
         }
 
 

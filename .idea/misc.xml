@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/aaron/AndroidStudioProjects/Flixster/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.196875" />
+        <entry key="..\:/Users/aaron/AndroidStudioProjects/Flixster/app/src/main/res/drawable/ic_baseline_cloud_download_24.xml" value="0.196875" />
+        <entry key="..\:/Users/aaron/AndroidStudioProjects/Flixster/app/src/main/res/drawable/ic_launcher_background.xml" value="0.196875" />
+        <entry key="..\:/Users/aaron/AndroidStudioProjects/Flixster/app/src/main/res/drawable/image_placeholder.xml" value="0.196875" />
         <entry key="..\:/Users/aaron/AndroidStudioProjects/Flixster/app/src/main/res/layout-land/activity_main.xml" value="0.28021015761821366" />
         <entry key="..\:/Users/aaron/AndroidStudioProjects/Flixster/app/src/main/res/layout-land/item_movie.xml" value="0.28021015761821366" />
         <entry key="..\:/Users/aaron/AndroidStudioProjects/Flixster/app/src/main/res/layout/activity_main.xml" value="0.34002006018054165" />
