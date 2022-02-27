@@ -1,5 +1,6 @@
 package com.example.flixster
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +12,11 @@ import okhttp3.Headers
 import org.json.JSONException
 
 private const val TAG = "MainActivity"
-private const val NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"
+
+const val TMDB_API_KEY = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
+private const val NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=$TMDB_API_KEY"
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,7 +28,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         rvMovies = findViewById(R.id.rv)
 
-        val movieAdapter = MovieItemAdapter(this, movies)
+        val movieAdapter = MovieItemAdapter(
+            this,
+            movies,
+            object : MovieItemAdapter.OnClickListener {
+                override fun onMovieClicked(position: Int) {
+                    val movie = movies[position]
+
+                    val i = Intent(this@MainActivity, DetailActivity::class.java)
+                    i.putExtra("movie",movie)
+
+                    startActivity(i)
+                }
+            }
+        )
         rvMovies.adapter = movieAdapter
         rvMovies.layoutManager = LinearLayoutManager(this)
 

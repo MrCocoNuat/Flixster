@@ -10,17 +10,32 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class MovieItemAdapter(private val context: Context, private val movies: List<Movie>) :
+class MovieItemAdapter(private val context: Context,
+                       private val movies: List<Movie>,
+                       val clickListener : OnClickListener
+) :
     RecyclerView.Adapter<MovieItemAdapter.ViewHolder>() {
+
+
+    //implemented by obj in MainActivity
+    interface OnClickListener{
+        fun onMovieClicked(position: Int)
+    }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         private val posterView = itemView.findViewById<ImageView>(R.id.poster)
         private val titleView = itemView.findViewById<TextView>(R.id.title)
         private val overviewView = itemView.findViewById<TextView>(R.id.overview)
 
+        init{
+            itemView.setOnClickListener{
+                clickListener.onMovieClicked(adapterPosition)
+            }
+        }
+
         fun bind(movie: Movie) {
-            titleView.setText(movie.title)
-            overviewView.setText(movie.overview)
+            titleView.text = movie.title
+            overviewView.text = movie.overview
 
             //orientation dependent
             //if anything but landscape just use the poster image
