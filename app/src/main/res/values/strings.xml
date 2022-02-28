@@ -3,4 +3,5 @@
     <string name="app_header">Now Playing:</string>
     <string name="title_sample">Title</string>
     <string name="overview_sample">Overview</string>
+    <string name="release_date">Release Date</string>
 </resources>

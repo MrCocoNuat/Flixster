@@ -26,6 +26,7 @@ class DetailActivity : YouTubeBaseActivity() {
         val tvTitle = findViewById<TextView>(R.id.tvTitle)
         val tvOverView = findViewById<TextView>(R.id.tvOverview)
         val rating = findViewById<RatingBar>(R.id.ratingBar)
+        val date = findViewById<TextView>(R.id.tvDate)
 
 
         val movie = intent.getParcelableExtra<Movie>("movie")!!
@@ -33,6 +34,7 @@ class DetailActivity : YouTubeBaseActivity() {
         tvTitle.text = movie.title
         tvOverView.text = movie.overview
         rating.rating = movie.rating.toFloat()
+        date.text = movie.releaseDate
 
         val client = AsyncHttpClient()
         client.get(VIDEO_URL.format(movie.movieId), object : JsonHttpResponseHandler(){

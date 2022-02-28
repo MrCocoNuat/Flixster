@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 
 class MovieItemAdapter(private val context: Context,
                        private val movies: List<Movie>,
@@ -45,11 +46,13 @@ class MovieItemAdapter(private val context: Context,
 
             Glide.with(context)
                 .load(imageUrl)
+                .centerCrop()
                 .placeholder(R.drawable.ic_baseline_cloud_download_24)
                     // DO NOT alter the viewport size to match the placeholder, keep it the same
                 .dontTransform()
                 .error(R.drawable.ic_baseline_cloud_off_24)
                 .dontTransform()
+                .transform(RoundedCornersTransformation(10,10))
                 .into(posterView)
         }
 
